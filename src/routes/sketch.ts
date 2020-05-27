@@ -17,8 +17,29 @@ const router = new Router({
   prefix: '/sketch'
 });
 
+const getSketchList = () => {
+  //   return sketchModel.find({}).limit(10);
+
+  return sketchModel.aggregate([
+    {
+      $lookup: {
+        from: 'raw_files',
+        localField: 'fid',
+        foreignField: '_id',
+        as: 'rawFile'
+      }
+    },
+    {
+      $unwind: '$rawFile'
+    },
+    {
+      $limit: 20
+    }
+  ]);
+};
+
 router.get('/:id', async (ctx, next) => {
-  const result = await sketchModel.find({}).limit(10);
+  const result = await getSketchList();
   ctx.body = '124';
   ctx.body = { files: result };
   next();
