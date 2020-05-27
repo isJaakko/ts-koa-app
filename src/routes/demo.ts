@@ -4,8 +4,6 @@ const router = new Router({
   prefix: '/demo'
 });
 
-router.get('/', async (ctx) => {
-  ctx.body = 'demo!!!';
-});
+router.get('/', () => {});
 
 export default router.routes();

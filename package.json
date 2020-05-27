@@ -24,7 +24,8 @@
     "koa-bodyparser": "^4.3.0",
     "koa-ejs": "^4.3.0",
     "koa-router": "^8.0.8",
-    "koa-static": "^5.0.0"
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.9.16"
   },
   "devDependencies": {
     "@types/koa": "^2.11.3",
