@@ -3,7 +3,7 @@ import demoRouter from './demo';
 import sketchRouter from './sketch';
 const router = new Router();
 
-router.use(demoRouter);
-router.use(sketchRouter);
+router.use(demoRouter.routes());
+router.use(sketchRouter.routes());
 
-export default router.route();
+export default router;

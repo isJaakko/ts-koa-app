@@ -1,9 +1,11 @@
-import * as Router from '@koa/router';
+import Router from '@koa/router';
 
 const router = new Router({
   prefix: '/demo'
 });
 
-router.get('/', () => {});
+router.get('/', (ctx) => {
+  ctx.body = 'demo111';
+});
 
-export default router.routes();
+export default router;
