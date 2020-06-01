@@ -1,4 +1,4 @@
-export const response = (ctx, status = 200, body) => {
+export const response = (ctx, status = 200, body: any) => {
   ctx.response.status = status;
   ctx.response.body = body;
 };

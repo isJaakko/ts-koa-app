@@ -1,5 +1,7 @@
 module.exports = {
-  extends: ['alloy', 'alloy/react', 'alloy/typescript'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   env: {
     // Your environments (which contains several predefined global variables)
     //
