@@ -3,10 +3,8 @@ import { ok } from '../utils/respose';
 
 class SketchController {
   async getSketchList(ctx) {
-    const files = await sketchService.getSketchList();
-    ok(ctx, {
-      files
-    });
+    const files = await sketchService.getSketchFileList('yinjunjie.yjj', {}, {});
+    ok(ctx, { files });
   }
 }
 export default new SketchController();

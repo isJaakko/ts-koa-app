@@ -5,6 +5,6 @@ const router = new Router({
   prefix: '/sketch'
 });
 
-router.get('/:id', SketchController.getSketchList);
+router.get('/file/list', SketchController.getSketchList);
 
 export default router;

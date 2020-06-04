@@ -9,4 +9,4 @@ const sketchSchema = new Schema({
   quickAccess: Boolean
 });
 
-export const sketchModel = db.model('sketch_file', sketchSchema);
+export const sketchFileModel = db.model('sketch_file', sketchSchema);
