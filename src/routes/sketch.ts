@@ -6,5 +6,6 @@ const router = new Router({
 });
 
 router.get('/file/list', SketchController.getSketchList);
+router.get('/:id', SketchController.getSketchFileNode);
 
 export default router;

@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 export { Schema } from 'mongoose';
+import { config } from '../../../local-setting';
 
-mongoose.connect('mongodb://127.0.0.1:27017/pendah', {
+mongoose.connect(config.mongooseUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
