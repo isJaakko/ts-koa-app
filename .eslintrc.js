@@ -18,5 +18,11 @@ module.exports = {
   },
   rules: {
     // Customize your rules
+    '@typescript-eslint/explicit-function-return-type': 'off'
   }
+  // overrides: [
+  //   {
+  //     '@typescript-eslint/explicit-function-return-type': 'off'
+  //   }
+  // ]
 };

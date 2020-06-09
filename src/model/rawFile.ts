@@ -1,12 +1,15 @@
 import db, { Schema } from './lib/db';
 
-const rawFileSchema = new Schema({
-  objectId: String,
-  fid: {
-    type: Schema.Types.ObjectId,
-    ref: 'raw_file'
+const rawFileSchema = new Schema(
+  {
+    md5: String,
+    size: Number,
+    type: String,
+    mimetype: String,
+    fileName: String,
+    oid: String
   },
-  quickAccess: Boolean
-});
+  { timestamps: true }
+);
 
 export const rawFileModel = db.model('raw_file', rawFileSchema);

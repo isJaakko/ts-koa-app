@@ -41,5 +41,25 @@ class SketchController {
     const sketchFile = await sketchService.getSketchFileNode(ctx.params.id);
     ok(ctx, sketchFile);
   }
+
+  async getSketchFileQuery(ctx) {
+    const fileNodes = await sketchService.getSketchFileList(
+      'yinjunjie.yjj',
+      {
+        'file.fileName': {
+          $regex: new RegExp('toutiao')
+        }
+      },
+      {}
+    );
+
+    ok(ctx, {
+      fileNodes
+    });
+  }
+
+  dataCleaning(_id) {
+    // sketchFileModel.find({_id});
+  }
 }
 export default new SketchController();

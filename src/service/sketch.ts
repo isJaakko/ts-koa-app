@@ -61,8 +61,8 @@ class SketchService {
     ]);
   }
 
-  getSketchFileList(owner: string, query: object, pageInfo?: any) {
-    const { pageSize = 20, pageNumber = 1 } = pageInfo;
+  getSketchFileList(owner: string, query: object, _pageInfo?: any) {
+    // const { pageSize = 20, pageNumber = 1 } = pageInfo;
 
     return sketchFileModel.aggregate([
       {
@@ -83,10 +83,8 @@ class SketchService {
       },
       {
         $match: {
-          ...query,
           // quickAccess: true,
-          deletedAt: null,
-          lastViewedAt: null
+          deletedAt: null
         }
       },
       {
@@ -113,15 +111,21 @@ class SketchService {
       },
       {
         $match: {
-          'fileNode.owner': owner
+          'fileNode.owner': owner,
+          ...query
         }
       },
       {
-        $skip: (Number(pageNumber) - 1) * Number(pageSize)
+        $group: {
+          _id: 'objectId'
+        }
       },
-      {
-        $limit: Number(pageSize)
-      },
+      // {
+      //   $skip: (Number(pageNumber) - 1) * Number(pageSize)
+      // },
+      // {
+      //   $limit: Number(pageSize)
+      // },
       {
         $lookup: {
           from: 'users',
@@ -295,6 +299,10 @@ class SketchService {
         $count: 'count'
       }
     ]);
+  }
+
+  dataCleaning(_id) {
+    // sketchFileModel.find({_id});
   }
 }
 export default new SketchService();
